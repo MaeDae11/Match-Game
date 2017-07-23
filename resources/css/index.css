@@ -1,0 +1,49 @@
+body {
+    background: rgb(225, 242, 242);
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+.rules {
+    padding-top: 5.25rem;
+    color: rgb(32, 64, 86);
+}
+
+.game-container {
+    padding-top: 5.25rem;
+}
+
+.box-row-1 {
+    height: 9rem;
+    background-color: rgb(32, 64, 86);
+    border: 2px solid #fff;
+    border-radius: 8px;
+}
+
+.box-row-1:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 992px) {
+    .box-row-1 {
+        height: 15.5rem;
+        background: rgb(32, 64, 86);
+        border: 2px solid #fff;
+        margin: 10px;
+        border-radius: 8px;
+        color: white;
+        font-size: 90px;
+        text-align: center;
+        font-weight: bolder;
+    }
+
+}
