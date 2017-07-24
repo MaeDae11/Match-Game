@@ -1,5 +1,6 @@
 var MatchGame = {};
 var $BOX = $('.box-row-1');
+var $CARD_INFO = $('.card-info')
 // var $myData = $(".card-numbers");
 /*
   Sets up a new game after HTML document has loaded.
@@ -35,42 +36,32 @@ function shuffleArray(array) {
 
 MatchGame.renderCards = function(cardValues, $game) {
   // $game.empty();
-  // console.log(cardValues)
-  // var 
-  // var $myData = $BOX.data("0");
+  $CARD_INFO.each( function (i){
+    $(this).text(cardValues[i]);
+    colorBackground($(this), cardValues[i]);
+  });
   
-  $.each($('.card-numbers').data(), function (i, cardValues){
-    $('.card-numbers').text(cardValues[i]);
-  }
-  // $.each(cardValues, function (i){
-    // $('.card-numbers').text(cardValues[i])
-    // $(".card-numbers").text(cardValues[i])
-    // console.log(cardValues[i])
-);
-  // colorBackground(cardValues);
-
 };
 
-function colorBackground(cardValues) {
-  $(cardValues).each( function (){
-    if ($myData === 1){
-      $BOX.css("background-color", "yellow")
-    } else if ($myData === 2) {
-      $BOX.css("background-color", "blue")
-    } else if ($myData === 3) {
-      $BOX.css("background-color", "pink")
-    } else if ($myData === 4) { 
-      $BOX.css("background-color", "purple")
-    } else if ($myData === 5) {
-      $BOX.css("background-color", "green")
-    } else if ($myData === 6) {
-      $BOX.css("background-color", "lightgrey")
-    } else if ($myData === 7) {
-      $BOX.css("background-color", "black")
+function colorBackground(box, value) {
+    if (value === 1){
+      box.css("background-color", "yellow")
+    } else if (value === 2) {
+      box.css("background-color", "blue")
+    } else if (value === 3) {
+      box.css("background-color", "pink")
+    } else if (value === 4) { 
+      box.css("background-color", "purple")
+    } else if (value === 5) {
+      box.css("background-color", "green")
+    } else if (value === 6) {
+      box.css("background-color", "lightgrey")
+    } else if (value === 7) {
+      box.css("background-color", "black")
     } 
-  });
+  };
 
-} 
+
 
 /*
   Flips over a given card and checks to see if two cards are flipped over.
@@ -82,4 +73,19 @@ MatchGame.flipCard = function($card, $game) {
 };
 
 MatchGame.generateCardValues();
-MatchGame.renderCards();
+
+
+
+
+
+
+
+
+
+
+// var dataLayer = value.data('card');
+//   if(!cardValues.indexOf(dataLayer)){
+//     cardValues.push(dataLayer);
+//     $('.card-info[data-card="'+ dataLayer + '"]').each(function(){
+      
+//     })
