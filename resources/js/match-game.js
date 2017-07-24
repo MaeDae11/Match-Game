@@ -36,7 +36,7 @@ function shuffleArray(array) {
 
 MatchGame.renderCards = function(cardValues, $game) {
   // $game.empty();
-  $CARD_INFO.each( function (i){
+  $BOX.each( function (i){
     $(this).text(cardValues[i]);
     colorBackground($(this), cardValues[i]);
   });
