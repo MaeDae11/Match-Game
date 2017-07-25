@@ -1,9 +1,9 @@
 var MatchGame = {};
 var $BOX = $('.box-row-1');
-var $CARD_INFO = $('.card-info')
 var $game = []
 var cardFlipped = false;
 var data = []
+var attributes;
 // var $myData = $(".card-numbers");
 /*
   Sets up a new game after HTML document has loaded.
@@ -45,22 +45,9 @@ function shuffleArray(array) {
 // function renderCards(cardValues) {
 //   var newArray = giveCardValue(cardValues);
 // };
-
-
-
-function giveCardValue(cardValues){
-  // loops through eachbox and uses .text to assign one of the numberes in the random array.
-  // based on those values, the background color is set so 1 and 1 have the same color. etc,
-
-  $BOX.each( function (i){
-    $(this).text(cardValues[i]);
-    var value = colorBackground($(this), cardValues[i])
-    console.log(value)
-  });
-  // return data
-};
-
-// takes $BOX which is $('.box-row-1'); and loops through each box's value to find what background color should do.
+function setNumberValue(box, value){
+  box.attr("data-number", value)
+}
 function colorBackground(box, value) {
   $.each(box, function (i){
     if (value === 1){
@@ -77,11 +64,26 @@ function colorBackground(box, value) {
       box.css("background-color", "lightgrey")
     } else if (value === 7) {
       box.css("background-color", "black")
-    } 
-  })
-    
-    return value;
-  };
+    } else if (value === 8) {
+      box.css("background-color", "orange")
+    }
+  });
+  return value;
+};
+  // loops through eachbox and uses .text to assign one of the numberes in the random array.
+  // based on those values, the background color is set so 1 and 1 have the same color. etc,
+function giveCardValue(cardValues){
+  $BOX.each( function (i){
+    $(this).text(cardValues[i]);
+    var value = colorBackground($(this), cardValues[i])
+    setNumberValue($(this), cardValues[i]);
+    // $(this).addClass(".box-row-show");
+    // $(this).toggle(".box-row-show");
+  });
+};
+
+
+// takes $BOX which is $('.box-row-1'); and loops through each box's value to find what background color should do.
 
 // function cardFlip(){
   
@@ -92,13 +94,15 @@ function colorBackground(box, value) {
  */
 
 //  when card is fliped, etc.
-// function detectCardFlip(){
-//   $('[data-card="card-numbers"]').on('click', function (){
-//     event.preventDefault();
-//     cardFlipped = true;
-//     $('[data-card="card-numbers"]').show()
-//   });
-// }
+function detectCardFlip(){
+  $BOX.on('click', function (){
+    event.preventDefault();
+    $(this).data('number', 'disabled')
+    // cardFlipped = true;
+    //class change
+    // .show()
+  });
+}
 
 
 
@@ -119,7 +123,7 @@ function restartGame(){
 
 
 
-
+detectCardFlip();
 restartGame();
 
 

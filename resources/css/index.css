@@ -20,6 +20,14 @@ body {
     border-radius: 8px;
 }
 
+.box-row-show {
+    height: 9rem;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: rgb(32, 64, 86);
+    color: rgb(32, 64, 86);
+}
+
 .box-row-1:hover {
     cursor: pointer;
 }
